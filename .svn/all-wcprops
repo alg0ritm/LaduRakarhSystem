@@ -1,0 +1,33 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 19
+/personal/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/.project
+END
+NewFile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/NewFile.xml
+END
+rebel.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/personal/!svn/ver/4212/trunk/anton/Steps_test_1/rebel.xml
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/personal/!svn/ver/4212/trunk/anton/Steps_test_1/build.xml
+END

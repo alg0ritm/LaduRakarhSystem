@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Store" table="store" schema="public">
+        <id name="store" type="long">
+            <column name="store" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

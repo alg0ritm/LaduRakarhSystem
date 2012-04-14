@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command
+END
+insertProductCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/insertProductCommand.java
+END
+searchProductCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/searchProductCommand.java
+END
+getMoveProductCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getMoveProductCommand.java
+END
+getItemTypeAttributesCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getItemTypeAttributesCommand.java
+END
+CommandFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/CommandFactory.java
+END
+getUserLogoutCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getUserLogoutCommand.java
+END
+newProductFormCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/newProductFormCommand.java
+END
+getUserAuthenticationCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getUserAuthenticationCommand.java
+END
+UpdateItemStoreCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/UpdateItemStoreCommand.java
+END
+Command.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/Command.java
+END
+getBasicFromValidationCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getBasicFromValidationCommand.java
+END
+getProductCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getProductCommand.java
+END
+updateProductCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/updateProductCommand.java
+END
+getProductsByCatalogCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getProductsByCatalogCommand.java
+END
+getProductCatalogTreeCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getProductCatalogTreeCommand.java
+END
+getTakeOnTheAccountCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getTakeOnTheAccountCommand.java
+END
+TakeOnTheAccountCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/TakeOnTheAccountCommand.java
+END
+RemoveFromTheAccountCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/RemoveFromTheAccountCommand.java
+END
+RemoveItemsCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/RemoveItemsCommand.java
+END
+getRemoveItemsCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/getRemoveItemsCommand.java
+END

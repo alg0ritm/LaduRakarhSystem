@@ -1,0 +1,40 @@
+10
+
+dir
+4216
+https://svn.tallinkintra.net/personal/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model
+https://svn.tallinkintra.net/personal
+
+
+
+2012-03-26T20:34:55.528163Z
+4216
+antonve
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+94febb0c-9b47-0410-981c-d858a31b9a88
+
+service
+dir
+
+business_logic
+dir
+
+data
+dir
+
+serviceErrors
+dir
+

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms
+END
+ProductSearchRequestProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/ProductSearchRequestProcessor.java
+END
+LoginRequestProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/LoginRequestProcessor.java
+END
+OperationOnProductForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/OperationOnProductForm.java
+END
+TakeOnTheAccountForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/TakeOnTheAccountForm.java
+END
+RemoveFromTheAccountForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/RemoveFromTheAccountForm.java
+END
+RemoveItemsForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/RemoveItemsForm.java
+END
+ProductForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/ProductForm.java
+END
+MyForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/MyForm.java
+END
+ProductRequestProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/ProductRequestProcessor.java
+END
+SearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/SearchForm.java
+END
+MoveForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/MoveForm.java
+END
+SpecialSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/SpecialSearchForm.java
+END
+MoveProductForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/MoveProductForm.java
+END
+LoginForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/forms/LoginForm.java
+END

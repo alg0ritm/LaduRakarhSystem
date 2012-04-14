@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ItemStore" table="item_store" schema="public">
+        <id name="itemStore" type="long">
+            <column name="item_store" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="storeFk" type="java.lang.Long">
+            <column name="store_fk" precision="10" scale="0" />
+        </property>
+        <property name="itemFk" type="java.lang.Long">
+            <column name="item_fk" precision="10" scale="0" />
+        </property>
+        <property name="itemCount" type="big_decimal">
+            <column name="item_count" precision="131089" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

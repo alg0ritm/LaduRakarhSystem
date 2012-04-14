@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ItemAction" table="item_action" schema="public">
+        <id name="itemAction" type="long">
+            <column name="item_action" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="itemActionTypeFk" type="java.lang.Long">
+            <column name="item_action_type_fk" precision="10" scale="0" />
+        </property>
+        <property name="itemFk" type="java.lang.Long">
+            <column name="item_fk" precision="10" scale="0" />
+        </property>
+        <property name="storeFromFk" type="java.lang.Long">
+            <column name="store_from_fk" precision="10" scale="0" />
+        </property>
+        <property name="storeToFk" type="java.lang.Long">
+            <column name="store_to_fk" precision="10" scale="0" />
+        </property>
+        <property name="actionDate" type="timestamp">
+            <column name="action_date" length="29" />
+        </property>
+        <property name="createdBy" type="java.lang.Long">
+            <column name="created_by" precision="10" scale="0" />
+        </property>
+        <property name="itemCount" type="java.lang.Long">
+            <column name="item_count" precision="10" scale="0" />
+        </property>
+        <property name="actionPrice" type="big_decimal">
+            <column name="action_price" precision="131089" scale="0" />
+        </property>
+        <property name="actionNote" type="string">
+            <column name="action_note" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>

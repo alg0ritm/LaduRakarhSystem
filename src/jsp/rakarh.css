@@ -1,0 +1,50 @@
+
+div.formd
+{
+border-color: #000000;
+border-width: 1px 1px 1px 1px;
+border-style: solid;
+background: #CCCCCC;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+div.catalog_tree
+{
+
+border-color: #CCCCCC;
+border-width: 1px 1px 1px 1px;
+border-style: solid;
+background: #EEEEEE;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+table.product_list
+{
+border: 1px solid black;
+border-collapse:collapse;
+}
+
+th.product_list
+{
+border: 1px solid black;
+}
+
+td.product_list
+{
+border: 1px solid black;
+padding:5px;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+
+div.message_box
+{
+
+border-color: #000000;
+border-width: 1px 1px 1px 1px;
+border-style: solid;
+background: #33FF00;
+font-family:Arial,Helvetica,sans-serif;
+font-weight:bold;
+
+}

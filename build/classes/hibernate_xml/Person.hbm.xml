@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Person" table="person" schema="public">
+        <id name="person" type="long">
+            <column name="person" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="100" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="100" />
+        </property>
+        <property name="identityCode" type="string">
+            <column name="identity_code" length="20" />
+        </property>
+        <property name="birthDate" type="date">
+            <column name="birth_date" length="13" />
+        </property>
+        <property name="createdBy" type="java.lang.Long">
+            <column name="created_by" precision="10" scale="0" />
+        </property>
+        <property name="updatedBy" type="java.lang.Long">
+            <column name="updated_by" precision="10" scale="0" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="29" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="updated" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>

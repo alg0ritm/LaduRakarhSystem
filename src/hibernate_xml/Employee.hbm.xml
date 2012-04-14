@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Employee" table="employee" schema="public">
+        <id name="employee" type="long">
+            <column name="employee" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="personFk" type="java.lang.Long">
+            <column name="person_fk" precision="10" scale="0" />
+        </property>
+        <property name="enterpriseFk" type="java.lang.Long">
+            <column name="enterprise_fk" precision="10" scale="0" />
+        </property>
+        <property name="structUnitFk" type="java.lang.Long">
+            <column name="struct_unit_fk" precision="10" scale="0" />
+        </property>
+        <property name="active" type="string">
+            <column name="active" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

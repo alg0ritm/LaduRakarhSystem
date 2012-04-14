@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+	<display-name>rakarh1</display-name>
+
+	<display-name>steps:web+backend</display-name>
+	<description>
+		steps
+  	</description>
+
+
+
+	<servlet>
+		<servlet-name>
+			Kontroller
+        </servlet-name>
+		<servlet-class>
+			ttu.rakarh1.web.control.Controller
+        </servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Kontroller</servlet-name>
+		<url-pattern>/c</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Kontroller</servlet-name>
+		<url-pattern>/index.html</url-pattern>
+	</servlet-mapping>
+
+</web-app>

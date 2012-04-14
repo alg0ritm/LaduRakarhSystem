@@ -1,0 +1,26 @@
+
+
+PROJECT_HOME=/usr/local/project/rakarh1/steps
+export PROJECT_HOME
+
+
+cd $PROJECT_HOME
+ant compile
+
+ant run.test_dao
+ant run.test_product_search
+ant run.test_product_crud
+
+ant run.test_product_service
+ant run.test_tree
+
+
+ant deploy_war_local
+ant deploy_remote_to_imbi
+
+ant redeploy_remote_to_imbi
+
+
+http://localhost:8080/steps/
+http://imbi.ld.ttu.ee:7500/steps/
+

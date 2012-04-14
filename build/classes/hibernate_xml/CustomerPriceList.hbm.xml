@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="CustomerPriceList" table="customer_price_list" schema="public">
+        <id name="customerPriceList" type="long">
+            <column name="customer_price_list" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="customerFk" type="java.lang.Long">
+            <column name="customer_fk" precision="10" scale="0" />
+        </property>
+        <property name="priceListFk" type="java.lang.Long">
+            <column name="price_list_fk" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

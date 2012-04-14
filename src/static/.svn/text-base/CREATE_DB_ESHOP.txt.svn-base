@@ -1,0 +1,128 @@
+CREATE SEQUENCE product_catalog_id ;
+
+CREATE TABLE product_catalog
+( product_catalog numeric(10,0) NOT NULL DEFAULT nextval('product_catalog_id'),
+  name text,
+  description text,
+  level numeric(10,0),
+  upper_catalog_fk numeric(10,0),
+  type_catalog varchar(1),
+  CONSTRAINT product_catalog_pk PRIMARY KEY (product_catalog)
+) ;
+
+CREATE SEQUENCE product_id ;
+
+CREATE TABLE product
+( product numeric(10,0) NOT NULL DEFAULT nextval('product_id'),
+  product_catalog_fk numeric(10,0),
+  product_code text,
+  name text,
+  description text,
+  eshop_price numeric ,
+  max_customer_discount numeric(10,0),
+  created timestamp,
+  created_by numeric(10,0),
+  updated timestamp,
+  updated_by numeric(10,0),
+  CONSTRAINT product_pk PRIMARY KEY (product)
+) ;
+
+CREATE SEQUENCE employee_id ;
+
+CREATE TABLE employee 
+( employee numeric(10,0) NOT NULL DEFAULT nextval('employee_id'),
+  first_name text,
+  last_name text,
+  person_fk numeric(10,0),
+  enterprise_fk numeric(10,0),
+  struct_unit_fk numeric(10,0),
+  active varchar(1),
+  CONSTRAINT employee_pk PRIMARY KEY (employee)
+) ;
+
+CREATE SEQUENCE user_account_id ;
+
+CREATE TABLE user_account 
+( user_account numeric(10,0) NOT NULL DEFAULT nextval('user_account_id'),
+  subject_type_fk numeric(10,0),
+  subject_fk numeric(10,0),
+  username varchar(50),
+  passw varchar(300),
+  status numeric(10,0),
+  valid_from date,
+  valid_to date,
+  created_by numeric(10,0),
+  created timestamp,
+  password_never_expires varchar(1),
+  CONSTRAINT user_account_pk PRIMARY KEY (user_account)
+) ;
+
+
+CREATE SEQUENCE eshop_id ;
+
+CREATE TABLE eshop
+( eshop numeric(10,0) NOT NULL DEFAULT nextval('eshop_id'),
+  name text,
+  CONSTRAINT eshop_pk PRIMARY KEY (eshop)
+) ;
+
+
+CREATE SEQUENCE product_eshop_id ;
+
+CREATE TABLE product_eshop
+( product_eshop numeric(10,0) NOT NULL DEFAULT nextval('product_eshop_id'),
+  product_fk numeric(10,0),
+  eshop_fk numeric(10,0),
+  CONSTRAINT product_eshop_pk PRIMARY KEY (product_eshop)
+) ;
+
+/* product tabeli indeksid ja piirangud */
+
+CREATE   INDEX product_idx1
+ ON product
+  ( product);
+  
+CREATE   INDEX product_idx2
+ ON product
+  ( upper(name) varchar_pattern_ops);
+  
+CREATE   INDEX product_idx3
+ ON product
+  ( upper(product_code) varchar_pattern_ops);
+  
+
+CREATE   INDEX product_idx4
+ ON product
+  ( description varchar_pattern_ops);
+  
+CREATE   INDEX product_idx5
+ ON product
+  ( eshop_price);
+  
+
+
+  /* product_catalog tabeli indeksid ja piirangud */
+
+CREATE   INDEX product_catalog_idx1
+ ON product_catalog
+  ( product_catalog);
+  
+CREATE   INDEX product_catalog_idx2
+ ON product
+  ( upper(name) varchar_pattern_ops);
+
+  CREATE   INDEX product_catalog_idx3
+ ON product
+  ( description varchar_pattern_ops);
+  
+/* product_eshop tabeli indeksid ja piirangud */
+
+CREATE   INDEX product_eshop_idx1
+ ON product_eshop
+  ( product_eshop);
+  
+CREATE   INDEX product_eshop_idx2
+ ON product_eshop
+  ( product_fk);
+  
+  

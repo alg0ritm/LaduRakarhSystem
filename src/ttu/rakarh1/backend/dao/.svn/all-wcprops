@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao
+END
+ItemStoreDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/personal/!svn/ver/4213/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/ItemStoreDAO.java
+END
+ProductCatalogDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/ProductCatalogDAO.java
+END
+ItemStoreDAOImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/personal/!svn/ver/4213/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/ItemStoreDAOImpl.java
+END
+ProductCatalogDAOImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/personal/!svn/ver/4212/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/ProductCatalogDAOImpl.java
+END
+UserDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/UserDAO.java
+END
+TakeOnTheAccountDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/TakeOnTheAccountDAO.java
+END
+ProductDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/ProductDAO.java
+END
+UserDAOImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/UserDAOImpl.java
+END
+TakeOnTheAccountDAOImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/TakeOnTheAccountDAOImpl.java
+END
+dbconnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/dbconnection.java
+END
+ProductDAOImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/ProductDAOImpl.java
+END
+DrawSearchFormDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/DrawSearchFormDAO.java
+END
+DrawSearchFormDAOImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/DrawSearchFormDAOImpl.java
+END

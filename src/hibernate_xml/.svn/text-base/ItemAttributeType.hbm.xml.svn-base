@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ItemAttributeType" table="item_attribute_type" schema="public">
+        <id name="itemAttributeType" type="long">
+            <column name="item_attribute_type" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="typeName" type="string">
+            <column name="type_name" />
+        </property>
+        <property name="multipleAttributes" type="string">
+            <column name="multiple_attributes" length="1" />
+        </property>
+        <property name="dataType" type="java.lang.Long">
+            <column name="data_type" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

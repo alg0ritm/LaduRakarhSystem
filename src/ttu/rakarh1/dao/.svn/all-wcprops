@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/dao
+END
+HibernateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/dao/HibernateUtil.java
+END
+ItemDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/dao/ItemDAO.java
+END
+HibernateListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/dao/HibernateListener.java
+END
+SessionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/dao/SessionManager.java
+END

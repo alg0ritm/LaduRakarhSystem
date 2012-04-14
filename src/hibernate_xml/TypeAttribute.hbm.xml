@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="TypeAttribute" table="type_attribute" schema="public">
+        <id name="typeAttribute" type="long">
+            <column name="type_attribute" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="itemTypeFk" type="java.lang.Long">
+            <column name="item_type_fk" precision="10" scale="0" />
+        </property>
+        <property name="itemAttributeTypeFk" type="java.lang.Long">
+            <column name="item_attribute_type_fk" precision="10" scale="0" />
+        </property>
+        <property name="orderby" type="java.lang.Long">
+            <column name="orderby" precision="10" scale="0" />
+        </property>
+        <property name="required" type="string">
+            <column name="required" length="1" />
+        </property>
+        <property name="createdByDefault" type="string">
+            <column name="created_by_default" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

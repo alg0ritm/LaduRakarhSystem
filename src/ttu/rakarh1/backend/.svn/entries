@@ -1,0 +1,46 @@
+10
+
+dir
+4216
+https://svn.tallinkintra.net/personal/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend
+https://svn.tallinkintra.net/personal
+
+
+
+2012-03-26T20:34:55.528163Z
+4216
+antonve
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+94febb0c-9b47-0410-981c-d858a31b9a88
+
+test
+dir
+
+model
+dir
+
+dao
+dir
+
+enums
+dir
+
+constant
+dir
+
+util
+dir
+

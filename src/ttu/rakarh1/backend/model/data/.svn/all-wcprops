@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data
+END
+FormAttrField.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/FormAttrField.java
+END
+DrawSearchFormStringCriteriaImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/DrawSearchFormStringCriteriaImpl.java
+END
+BasicForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/BasicForm.java
+END
+DrawSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/DrawSearchForm.java
+END
+HorisontalMenu.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/HorisontalMenu.java
+END
+ItemStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/ItemStore.java
+END
+ProductCatalog.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/personal/!svn/ver/4212/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/ProductCatalog.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/User.java
+END
+Product.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/Product.java
+END
+ProductExistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/ProductExistance.java
+END
+FormAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/FormAttribute.java
+END
+ProductSearchCriteria.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/ProductSearchCriteria.java
+END
+DrawSearchFormCriteria.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/DrawSearchFormCriteria.java
+END
+MoveProductForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/MoveProductForm.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/Item.java
+END

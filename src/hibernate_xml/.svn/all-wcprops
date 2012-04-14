@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml
+END
+ItemStore.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemStore.hbm.xml
+END
+ItemPriceList.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemPriceList.hbm.xml
+END
+Product.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Product.hbm.xml
+END
+PriceListStatusType.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/PriceListStatusType.java
+END
+UnitType.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/UnitType.hbm.xml
+END
+hibernate.reveng.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/hibernate.reveng.xml
+END
+Person.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Person.java
+END
+ItemAttributeType.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemAttributeType.hbm.xml
+END
+ItemStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemStore.java
+END
+ItemPriceList.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemPriceList.java
+END
+UserAccount.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/UserAccount.hbm.xml
+END
+CustomerPriceList.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/CustomerPriceList.java
+END
+Enterprise.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Enterprise.java
+END
+Store.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Store.hbm.xml
+END
+UnitType.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/UnitType.java
+END
+PriceList.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/PriceList.hbm.xml
+END
+ItemAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemAttribute.java
+END
+Item.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Item.hbm.xml
+END
+ItemActionType.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemActionType.hbm.xml
+END
+Customer.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Customer.hbm.xml
+END
+PriceListStatusType.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/PriceListStatusType.hbm.xml
+END
+TypeAttribute.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/TypeAttribute.hbm.xml
+END
+Person.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Person.hbm.xml
+END
+UserAccount.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/UserAccount.java
+END
+ItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemAction.java
+END
+ItemType.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemType.java
+END
+Customer.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Customer.java
+END
+Employee.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Employee.hbm.xml
+END
+CustomerPriceList.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/CustomerPriceList.hbm.xml
+END
+Enterprise.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Enterprise.hbm.xml
+END
+TypeAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/TypeAttribute.java
+END
+ItemAttribute.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemAttribute.hbm.xml
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/hibernate.cfg.xml
+END
+Employee.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Employee.java
+END
+ItemAction.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemAction.hbm.xml
+END
+ItemType.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemType.hbm.xml
+END
+ItemAttributeType.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemAttributeType.java
+END
+Store.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Store.java
+END
+PriceList.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/PriceList.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/Item.java
+END
+ItemActionType.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/hibernate_xml/ItemActionType.java
+END

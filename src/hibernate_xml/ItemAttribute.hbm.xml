@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ItemAttribute" table="item_attribute" schema="public">
+        <id name="itemAttribute" type="long">
+            <column name="item_attribute" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="itemAttributeTypeFk" type="java.lang.Long">
+            <column name="item_attribute_type_fk" precision="10" scale="0" />
+        </property>
+        <property name="itemFk" type="java.lang.Long">
+            <column name="item_fk" precision="10" scale="0" />
+        </property>
+        <property name="typeName" type="string">
+            <column name="type_name" length="200" />
+        </property>
+        <property name="valueText" type="string">
+            <column name="value_text" />
+        </property>
+        <property name="valueNumber" type="big_decimal">
+            <column name="value_number" precision="131089" scale="0" />
+        </property>
+        <property name="valueDate" type="date">
+            <column name="value_date" length="13" />
+        </property>
+        <property name="dataType" type="java.lang.Long">
+            <column name="data_type" precision="10" scale="0" />
+        </property>
+        <property name="orderby" type="java.lang.Long">
+            <column name="orderby" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

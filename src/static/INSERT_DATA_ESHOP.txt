@@ -1,0 +1,82 @@
+/* sisestame moned tootajad */
+INSERT INTO employee (first_name, last_name) 
+VALUES ('Toomas','Haldur');
+
+INSERT INTO employee (first_name, last_name) 
+VALUES ('Margus','Maak');
+
+/* sisestame moned toote kataloogid */
+
+INSERT INTO product_catalog (name,level,upper_catalog_fk,type_catalog)
+VALUES ('arvutid',1,0,'Y');
+
+INSERT INTO product_catalog (name,level,upper_catalog_fk,type_catalog)
+VALUES ('printerid',1,0,'Y');
+
+INSERT INTO product_catalog (name,level,upper_catalog_fk,type_catalog)
+VALUES ('serverid',2,1,'Y');
+
+INSERT INTO product_catalog (name,level,upper_catalog_fk,type_catalog)
+VALUES ('desktopid',2,1,'Y');
+
+INSERT INTO product_catalog (name,level,upper_catalog_fk,type_catalog)
+VALUES ('laserprinterid',2,2,'Y');
+
+INSERT INTO product_catalog (name,level,upper_catalog_fk,type_catalog)
+VALUES ('terminalid',3,4,'Y');
+
+INSERT INTO product_catalog (name,level,upper_catalog_fk,type_catalog)
+VALUES ('PC bareboned',3,4,'Y');
+
+INSERT INTO product_catalog (name,level,upper_catalog_fk,type_catalog)
+VALUES ('HP terminalid',4,6,'Y');
+
+INSERT INTO eshop (name)
+VALUES ('OY CompShop');
+
+INSERT INTO eshop (name)
+VALUES ('EShopper');
+
+INSERT INTO eshop (name)
+VALUES ('Tehnika Systeemid');
+
+
+/* sisestame moned tooted */
+
+INSERT INTO product (product_catalog_fk,product_code,name,description, eshop_price,created_by,max_customer_discount)
+VALUES (3,'470065-321','ProLiant ML110','HP ProLiant ML110 G6 - P G6950 2.8 GHz',400,1,10);
+
+INSERT INTO product (product_catalog_fk,product_code,name,description, eshop_price,created_by,max_customer_discount)
+VALUES (3,'S11T1102102E','Dell PowerEdge T110','Dell PowerEdge T110 - Core i3 540 3.06 GHz',450,2,10);
+
+INSERT INTO product (product_catalog_fk,product_code,name,description, eshop_price,created_by,max_customer_discount)
+VALUES (4,'AX357AW#ABB','HP Compaq 6005 Pro','HP Compaq 6005 Pro - Phenom II X2 B55 3 GHz',466,2,10);
+
+INSERT INTO product (product_catalog_fk,product_code,name,description, eshop_price,created_by,max_customer_discount)
+VALUES (5,'ML-1660/SEE','ML1660','Samsung ML 1660 printer  B/W  laser',58,1,10);
+
+INSERT INTO product (product_catalog_fk,product_code,name,description, eshop_price,created_by,max_customer_discount)
+VALUES (5,'HL2035ZW1','Brother HL 2035','Brother HL 2035 - printer - B/W - laser',97,2,12);
+
+/* seome tooted poodidega */
+
+INSERT INTO product_eshop (product_fk,eshop_fk)
+VALUES (1,1);
+
+INSERT INTO product_eshop (product_fk,eshop_fk)
+VALUES (1,2);
+
+INSERT INTO product_eshop (product_fk,eshop_fk)
+VALUES (1,3);
+
+INSERT INTO product_eshop (product_fk,eshop_fk)
+VALUES (2,3);
+
+INSERT INTO product_eshop (product_fk,eshop_fk)
+VALUES (3,1);
+
+INSERT INTO product_eshop (product_fk,eshop_fk)
+VALUES (3,2);
+
+INSERT INTO product_eshop (product_fk,eshop_fk)
+VALUES (4,2);

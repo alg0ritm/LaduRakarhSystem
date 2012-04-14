@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ttu.rakarh1.backend.model.data.Item" table="item">
+        <id name="product" type="java.lang.Integer">
+            <column name="item" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="product_catalog" type="java.lang.Integer">
+            <column name="unit_type_fk" precision="10" scale="0" />
+        </property>
+        <property name="supplier_enterprise_fk" type="java.lang.Integer">
+            <column name="supplier_enterprise_fk" precision="10" scale="0" />
+        </property>
+        <property name="item_type_fk" type="java.lang.Integer">
+            <column name="item_type_fk" precision="10" scale="0" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="eshop_price" type="java.lang.Double">
+            <column name="store_price" precision="10" scale="0" />
+        </property>
+        <property name="max_customer_discount" type="java.lang.Integer">
+            <column name="sale_price"/>
+        </property>
+        <property name="producer" type="string">
+            <column name="producer" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="product_code" type="string">
+            <column name="producer_code" />
+        </property>
+        <property name="singleItem" type="string">
+            <column name="single_item" length="1" />
+        </property>
+        <property name="upperItemFk" type="java.lang.Integer">
+            <column name="upper_item_fk" precision="10" scale="0" />
+        </property>
+        <property name="serialNo" type="string">
+            <column name="serial_no" length="100" />
+        </property>
+        <property name="created" type="string">
+            <column name="created" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>

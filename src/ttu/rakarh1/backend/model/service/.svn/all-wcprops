@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service
+END
+ProductService.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/ProductService.java
+END
+TakeOnTheAccountServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/TakeOnTheAccountServiceImpl.java
+END
+InputFieldsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/InputFieldsService.java
+END
+DrawSearchFormServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/DrawSearchFormServiceImpl.java
+END
+MoveProductServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/MoveProductServiceImpl.java
+END
+LoginServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/LoginServiceImpl.java
+END
+ProductCatalogTreeImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/personal/!svn/ver/4212/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/ProductCatalogTreeImpl.java
+END
+SupplyFormWithRequestData.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/SupplyFormWithRequestData.java
+END
+TakeOnTheAccountService.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/TakeOnTheAccountService.java
+END
+ProductServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/ProductServiceImpl.java
+END
+DrawSearchFormService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/DrawSearchFormService.java
+END
+MoveProductService.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/MoveProductService.java
+END
+InputFieldsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/InputFieldsServiceImpl.java
+END
+LoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/LoginService.java
+END
+ProductCatalogTree.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service/ProductCatalogTree.java
+END

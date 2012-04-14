@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.07.2011 14:20:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="PriceList" table="price_list" schema="public">
+        <id name="priceList" type="long">
+            <column name="price_list" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="priceListStatusTypeFk" type="java.lang.Long">
+            <column name="price_list_status_type_fk" precision="10" scale="0" />
+        </property>
+        <property name="defaultDiscountXtra" type="java.lang.Long">
+            <column name="default_discount_xtra" precision="10" scale="0" />
+        </property>
+        <property name="dateFrom" type="date">
+            <column name="date_from" length="13" />
+        </property>
+        <property name="dateTo" type="date">
+            <column name="date_to" length="13" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" />
+        </property>
+        <property name="createdBy" type="java.lang.Long">
+            <column name="created_by" precision="10" scale="0" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="29" />
+        </property>
+        <property name="updatedBy" type="java.lang.Long">
+            <column name="updated_by" precision="10" scale="0" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="updated" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>
