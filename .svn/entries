@@ -1,14 +1,14 @@
 10
 
 dir
-4216
+4233
 https://svn.tallinkintra.net/personal/trunk/anton/Steps_test_1
 https://svn.tallinkintra.net/personal
 
 
 
-2012-03-26T20:34:55.528163Z
-4216
+2012-04-22T18:22:22.731153Z
+4233
 antonve
 has-props
 
@@ -39,7 +39,7 @@ dir
 
 .project
 file
-
+4224
 
 
 
@@ -82,7 +82,7 @@ dir
 
 NewFile.xml
 file
-
+4224
 
 
 
@@ -116,7 +116,7 @@ antonve
 
 rebel.xml
 file
-
+4224
 
 
 
@@ -153,7 +153,7 @@ dir
 
 build.xml
 file
-
+4224
 
 
 

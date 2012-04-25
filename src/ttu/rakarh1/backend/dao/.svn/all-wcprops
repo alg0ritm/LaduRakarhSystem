@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 76
-/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao
 END
 ItemStoreDAO.java
 K 25
@@ -67,7 +67,7 @@ ProductDAOImpl.java
 K 25
 svn:wc:ra_dav:version-url
 V 96
-/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/ProductDAOImpl.java
+/personal/!svn/ver/4235/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/dao/ProductDAOImpl.java
 END
 DrawSearchFormDAO.java
 K 25

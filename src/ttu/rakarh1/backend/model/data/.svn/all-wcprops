@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 83
-/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data
 END
 FormAttrField.java
 K 25
@@ -31,7 +31,7 @@ HorisontalMenu.java
 K 25
 svn:wc:ra_dav:version-url
 V 103
-/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/HorisontalMenu.java
+/personal/!svn/ver/4235/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/data/HorisontalMenu.java
 END
 ItemStore.java
 K 25

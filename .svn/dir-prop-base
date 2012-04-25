@@ -1,7 +1,9 @@
 K 10
 svn:ignore
-V 17
+V 29
 .classpath
 *.war
+.git
+README
 
 END

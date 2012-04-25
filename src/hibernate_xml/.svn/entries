@@ -1,7 +1,7 @@
 10
 
 dir
-4216
+4224
 https://svn.tallinkintra.net/personal/trunk/anton/Steps_test_1/src/hibernate_xml
 https://svn.tallinkintra.net/personal
 
@@ -536,14 +536,14 @@ antonve
 
 981
 
-PriceList.hbm.xml
+ItemActionType.hbm.xml
 file
 
 
 
 
-2011-07-31T11:20:29.031000Z
-3ea38edb4316060dc332c3ba2aa6e1eb
+2011-07-31T11:20:29.062000Z
+bd91e39d2af0521d659c638a85e25b71
 2012-03-01T21:01:43.857697Z
 4211
 antonve
@@ -568,41 +568,7 @@ antonve
 
 
 
-1754
-
-Item.hbm.xml
-file
-
-
-
-
-2011-08-05T21:02:49.265000Z
-2e4ccf6d980eaaaee694a5d0992c38a8
-2012-03-01T21:01:43.857697Z
-4211
-antonve
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2291
+674
 
 ItemAttribute.java
 file
@@ -638,14 +604,14 @@ antonve
 
 2583
 
-ItemActionType.hbm.xml
+Item.hbm.xml
 file
 
 
 
 
-2011-07-31T11:20:29.062000Z
-bd91e39d2af0521d659c638a85e25b71
+2011-08-05T21:02:49.265000Z
+2e4ccf6d980eaaaee694a5d0992c38a8
 2012-03-01T21:01:43.857697Z
 4211
 antonve
@@ -670,7 +636,41 @@ antonve
 
 
 
-674
+2291
+
+PriceList.hbm.xml
+file
+
+
+
+
+2011-07-31T11:20:29.031000Z
+3ea38edb4316060dc332c3ba2aa6e1eb
+2012-03-01T21:01:43.857697Z
+4211
+antonve
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1754
 
 Customer.hbm.xml
 file
@@ -978,40 +978,6 @@ antonve
 
 1091
 
-Enterprise.hbm.xml
-file
-
-
-
-
-2011-07-31T11:20:29.234000Z
-c6bc0c5ae15e4c3672201055e7d8190b
-2012-03-01T21:01:43.857697Z
-4211
-antonve
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1286
-
 CustomerPriceList.hbm.xml
 file
 
@@ -1045,6 +1011,40 @@ antonve
 
 
 862
+
+Enterprise.hbm.xml
+file
+
+
+
+
+2011-07-31T11:20:29.234000Z
+c6bc0c5ae15e4c3672201055e7d8190b
+2012-03-01T21:01:43.857697Z
+4211
+antonve
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1286
 
 TypeAttribute.java
 file

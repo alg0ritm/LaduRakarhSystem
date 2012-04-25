@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 73
-/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/view
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/view
 END
 TakeOnTheAccountFormUI.java
 K 25
@@ -19,7 +19,7 @@ DrawUpdateForm.java
 K 25
 svn:wc:ra_dav:version-url
 V 93
-/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/view/DrawUpdateForm.java
+/personal/!svn/ver/4235/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/view/DrawUpdateForm.java
 END
 HorisontalMenuUi.java
 K 25

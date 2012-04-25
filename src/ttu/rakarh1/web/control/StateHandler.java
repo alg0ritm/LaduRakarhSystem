@@ -11,45 +11,27 @@ import ttu.rakarh1.web.control.command.Command;
 
 public class StateHandler
 {
-	private StateEnum lastState;
 	HorisontalMenu horisontalMenu;
 	private Product lastProduct;
+	private StateEnum lastState;
 
 
-	private ProductCatalog selectedCatalog;
 	private HashMap<String, String> map;
-	private HashMap<String, String> popupNotifications = new HashMap<String,String>();
 	private ArrayList<Command> negativeResultCommands = new ArrayList<Command>();
+	private final HashMap<String, String> popupNotifications = new HashMap<String,String>();
+	private ProductCatalog selectedCatalog;
 
 
-	public ArrayList<Command> getNegativeResultCommands()
+	public void addNegativeResultCommandExecutions(final Command negativeResultCommand)
 	{
-		return negativeResultCommands;
+		negativeResultCommands.add(negativeResultCommand);
+
 	}
 
-	public void setNegativeResultCommands(ArrayList<Command> negativeResultCommands)
+	public void addPopupNotification(final String key, final String value)
 	{
-		this.negativeResultCommands = negativeResultCommands;
-	}
+		popupNotifications.put(key, value);
 
-	public Product getLastProduct()
-	{
-		return lastProduct;
-	}
-
-	public ProductCatalog getSelectedCatalog()
-	{
-		return selectedCatalog;
-	}
-
-	public void setSelectedCatalog(ProductCatalog selectedCatalog)
-	{
-		this.selectedCatalog = selectedCatalog;
-	}
-
-	public void setLastProduct(Product lastProduct)
-	{
-		this.lastProduct = lastProduct;
 	}
 
 	public HorisontalMenu getHorisontalMenu()
@@ -57,9 +39,9 @@ public class StateHandler
 		return horisontalMenu;
 	}
 
-	public void setHorisontalMenu(HorisontalMenu horisontalMenu)
+	public Product getLastProduct()
 	{
-		this.horisontalMenu = horisontalMenu;
+		return lastProduct;
 	}
 
 	public StateEnum getLastState()
@@ -67,15 +49,13 @@ public class StateHandler
 		return lastState;
 	}
 
-	public void setLastState(StateEnum lastState)
-	{
-		this.lastState = lastState;
-	}
-
 	public HorisontalMenu getMenuVisibility() {
 
 		horisontalMenu = new HorisontalMenu();
 		horisontalMenu.setSelectedCatalog(selectedCatalog);
+		if(selectedCatalog==null) {
+			horisontalMenu.setBasicSearch(true);
+		}
 		horisontalMenu.setSelectedProduct(lastProduct);
 
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -83,7 +63,9 @@ public class StateHandler
 		this.map = map;
 		horisontalMenu.setMap(map);
 		if(lastState==null)
+		{
 			lastState = StateEnum.INIT;
+		}
 
 		switch(lastState) {
 			case INIT:
@@ -138,21 +120,44 @@ public class StateHandler
 
 	}
 
+	public ArrayList<Command> getNegativeResultCommands()
+	{
+		return negativeResultCommands;
+	}
+
 	public HashMap<String, String> getPopupNotifications()
 	{
 		return popupNotifications;
 	}
 
-	public void addPopupNotification(String key, String value)
+	public ProductCatalog getSelectedCatalog()
 	{
-		popupNotifications.put(key, value);
-
+		return selectedCatalog;
 	}
 
-	public void addNegativeResultCommandExecutions(Command negativeResultCommand)
+	public void setHorisontalMenu(final HorisontalMenu horisontalMenu)
 	{
-		negativeResultCommands.add(negativeResultCommand);
+		this.horisontalMenu = horisontalMenu;
+	}
 
+	public void setLastProduct(final Product lastProduct)
+	{
+		this.lastProduct = lastProduct;
+	}
+
+	public void setLastState(final StateEnum lastState)
+	{
+		this.lastState = lastState;
+	}
+
+	public void setNegativeResultCommands(final ArrayList<Command> negativeResultCommands)
+	{
+		this.negativeResultCommands = negativeResultCommands;
+	}
+
+	public void setSelectedCatalog(final ProductCatalog selectedCatalog)
+	{
+		this.selectedCatalog = selectedCatalog;
 	}
 
 

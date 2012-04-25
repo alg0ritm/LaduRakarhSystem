@@ -19,7 +19,8 @@ import ttu.rakarh1.web.forms.SearchForm;
 public class searchProductCommand implements Command, Constant {
 
 
-	public int execute(HttpServletRequest request, HttpServletResponse response, StateHandler stateHandler)
+	@Override
+	public int execute(final HttpServletRequest request, final HttpServletResponse response, final StateHandler stateHandler)
 	throws ServletException, IOException {
 		int operation_result = 0;
 
@@ -46,8 +47,8 @@ public class searchProductCommand implements Command, Constant {
 			    List<ttu.rakarh1.backend.model.data.Product> products = null;
 			    products = ProductService.searchProducts(ProductSearchCriteria, request);
 				request.setAttribute ("products", products);
-				MyLogger.LogMessage(Constant.SHOW_ADD_PRODUCT + " " +ProductSearchCriteria.getItem_type_fk() + " " + SearchForm.isShowAddProduct());
-				request.setAttribute(Constant.SHOW_ADD_PRODUCT, SearchForm.isShowAddProduct()+"");
+				/*MyLogger.LogMessage(Constant.SHOW_ADD_PRODUCT + " " +ProductSearchCriteria.getItem_type_fk() + " " + SearchForm.isShowAddProduct());
+				request.setAttribute(Constant.SHOW_ADD_PRODUCT, SearchForm.isShowAddProduct()+"");*/
 			}
 			session.setAttribute("SearchForm", SearchForm);
 			request.setAttribute ("SearchForm", SearchForm);
@@ -60,8 +61,8 @@ public class searchProductCommand implements Command, Constant {
 	}
 
 	@Override
-	public void supplyFormWithErrors(HttpServletRequest req, HttpServletResponse res,
-			StateHandler stateHandler)
+	public void supplyFormWithErrors(final HttpServletRequest req, final HttpServletResponse res,
+			final StateHandler stateHandler)
 	{
 		// TODO Auto-generated method stub
 

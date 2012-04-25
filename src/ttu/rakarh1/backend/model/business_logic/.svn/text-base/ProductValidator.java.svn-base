@@ -9,12 +9,17 @@ public class ProductValidator {
 	private HashMap ProductErrors=null;
 
 
+	public HashMap getErrors()
+	{
+	return this.ProductErrors;
+	}
+
 	public void ProductValidator()
 	{
 
 	}
 
-	public int ValidateProduct(Product ValidatableProduct)
+	public int ValidateProduct(final Product ValidatableProduct)
 	{
 		ProductErrors = new HashMap();
 	    int productOK =1 ;
@@ -30,7 +35,7 @@ public class ProductValidator {
 
 			if ((ValidatableProduct.getStore_price() <  10) && (ValidatableProduct.getSale_price() > 5 ))
 			{
-				ProductErrors.put("max_customer_discount","liiga suur maks. allahindluse protsent");
+				ProductErrors.put("max_customer_discount","liiga vaike ladumise hind");
 				productOK = -1;
 			}
 		}
@@ -41,11 +46,6 @@ public class ProductValidator {
 		}
 		return productOK;
 
-	}
-
-	public HashMap getErrors()
-	{
-	return this.ProductErrors;
 	}
 
 }

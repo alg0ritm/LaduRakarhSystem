@@ -1,14 +1,14 @@
 10
 
 dir
-4216
+4224
 https://svn.tallinkintra.net/personal/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/service
 https://svn.tallinkintra.net/personal
 
 
 
-2012-03-26T20:34:55.528163Z
-4216
+2012-04-08T14:09:01.515843Z
+4224
 antonve
 
 
@@ -28,7 +28,7 @@ antonve
 
 ProductService.java
 file
-4224
+
 
 
 
@@ -62,7 +62,7 @@ antonve
 
 TakeOnTheAccountServiceImpl.java
 file
-4223
+
 
 
 
@@ -128,6 +128,40 @@ antonve
 
 349
 
+MoveProductServiceImpl.java
+file
+
+
+
+
+2012-04-02T20:25:51.678709Z
+62f4541d84ea27acb7c706d1fde8a4d3
+2012-04-03T11:16:11.135726Z
+4223
+antonve
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4909
+
 DrawSearchFormServiceImpl.java
 file
 
@@ -161,40 +195,6 @@ antonve
 
 
 2336
-
-MoveProductServiceImpl.java
-file
-4223
-
-
-
-2012-04-02T20:25:51.678709Z
-62f4541d84ea27acb7c706d1fde8a4d3
-2012-04-03T11:16:11.135726Z
-4223
-antonve
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4909
 
 LoginServiceImpl.java
 file
@@ -266,7 +266,7 @@ antonve
 
 SupplyFormWithRequestData.java
 file
-4224
+
 
 
 
@@ -300,7 +300,7 @@ antonve
 
 TakeOnTheAccountService.java
 file
-4223
+
 
 
 
@@ -334,7 +334,7 @@ antonve
 
 ProductServiceImpl.java
 file
-4224
+
 
 
 
@@ -365,40 +365,6 @@ antonve
 
 
 7927
-
-MoveProductService.java
-file
-4223
-
-
-
-2012-04-01T18:15:49.805105Z
-40748d4b4de3d59513535158c3cea3f4
-2012-04-03T11:16:11.135726Z
-4223
-antonve
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-616
 
 DrawSearchFormService.java
 file
@@ -434,16 +400,16 @@ antonve
 
 587
 
-InputFieldsServiceImpl.java
+MoveProductService.java
 file
 
 
 
 
-2011-08-20T12:09:29.921000Z
-ef16d15bea8d0c1b6bdef7cedab2306f
-2012-03-01T21:01:43.857697Z
-4211
+2012-04-01T18:15:49.805105Z
+40748d4b4de3d59513535158c3cea3f4
+2012-04-03T11:16:11.135726Z
+4223
 antonve
 
 
@@ -466,7 +432,7 @@ antonve
 
 
 
-710
+616
 
 LoginService.java
 file
@@ -501,6 +467,40 @@ antonve
 
 
 306
+
+InputFieldsServiceImpl.java
+file
+
+
+
+
+2011-08-20T12:09:29.921000Z
+ef16d15bea8d0c1b6bdef7cedab2306f
+2012-03-01T21:01:43.857697Z
+4211
+antonve
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+710
 
 ProductCatalogTree.java
 file

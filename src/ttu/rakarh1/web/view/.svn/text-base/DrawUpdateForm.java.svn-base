@@ -8,56 +8,32 @@ import ttu.rakarh1.web.forms.ProductForm;
 
 public class DrawUpdateForm
 {
-	public String generateUpdateForm(ProductForm ProductForm, int selectedCatalog, String action)
+	public String generateInsertForm(final ProductForm ProductForm, final int selectedCatalog, final String action)
 	{
 		String retString = "";
-		retString += "<div class=\"formd\"><form action=c?user_action="+action+" method=post><table>";
-		retString += "<tr><td colspan=2>id:" + ProductForm.getItem()
-				+ ".<input type=hidden name=catalog value=" + selectedCatalog
-				+ "><input type=hidden name=product_id value='" + ProductForm.getItem()
-				+ "'></td><td></td></tr>";
-		retString += "<tr><td>tootja kood:</td><td><input type=text name=product_code value='"
-				+ ProductForm.getProducerCode() + "'></td></tr>";
-		retString += "<tr><td>nimetus:</td><td><input type=text name=name value='"
-				+ ProductForm.getName() + "' size=50></td><td>"
-				+ ProductForm.getErrorByField("name") + "</td></tr>";
-		retString += "<tr><td>ladumise hind:</td><td><input type=text name=store_price value='"
-				+ ProductForm.getStorePrice() + "' size=50></td><td>"
-				+ ProductForm.getErrorByField("eshop_price") + "</td></tr>";
-		retString += "<tr><td>muugi hind:</td><td><input type=text name=sale_price value='"
-				+ ProductForm.getSalePrice()
-				+ "' size=50></td><td>"
-				+ ProductForm.getErrorByField("sale_price") + "</td></tr>";
-		retString += "<tr><td valign=top>kirjeldus:</td><td><textarea name=description rows=10 cols=50>"
-				+ ProductForm.getDescription() + "</textarea></td></tr>";
-		return retString;
-	}
-
-	public String generateInsertForm(ProductForm ProductForm, int selectedCatalog, String action)
-	{
-		String retString = "";
+		String blankString = "";
 		retString += "<div class=\"formd\"><form action=c?user_action="+action+" method=post><table>";
 		retString +="<tr><input type=hidden name=catalog value=" + selectedCatalog
 				+ "><input type=hidden name=product_id value='"+ ProductForm.getItem()
 				+ "'></td><td></td></tr>";
-		retString += "<tr><td>tootja kood:</td><td><input type=text name=product_code value='" + ProductForm.getProducerCode() + "' size=50></td>"
+		retString += "<tr><td>tootja kood:</td><td><input type=text name=product_code value='" + (ProductForm.getProducerCode()!=null?ProductForm.getProducerCode():blankString) + "' size=50></td>"
 				+ "<td>"+ProductForm.getErrorByField("product_code") + "</td></tr>";
-		retString += "<tr><td>nimetus:</td><td><input type=text name=name value='" + ProductForm.getName()
+		retString += "<tr><td>nimetus:</td><td><input type=text name=name value='" + (ProductForm.getName()!=null?ProductForm.getName():blankString)
 				+ "' size=50></td>"
 				+ "<td>"+ProductForm.getErrorByField("name") + "</td></tr>";
-		retString += "<tr><td>ladumise hind:</td><td><input type=text name=store_price value='" + ProductForm.getStorePrice()
+		retString += "<tr><td>ladumise hind:</td><td><input type=text name=store_price value='" + (ProductForm.getStorePrice()>0?ProductForm.getStorePrice():blankString)
 				+ "' size=50></td>"
 				+ "</td>"
-				+ "<td>"+ ProductForm.getErrorByField("eshop_price") + "</td></tr>";
-		retString += "<tr><td>muugi hind:</td><td><input type=text name=sale_price value='" + ProductForm.getSalePrice()
+				+ "<td>"+ ProductForm.getErrorByField("store_price") + "</td></tr>";
+		retString += "<tr><td>muugi hind:</td><td><input type=text name=sale_price value='" + (ProductForm.getSalePrice()>0?ProductForm.getSalePrice():blankString)
 				+ "' size=50></td>"
 				+ "<td>"+ ProductForm.getErrorByField("sale_price") + "</td></tr>";
-		retString += "<tr><td valign=top>kirjeldus:</td><td><textarea name=description rows=10 cols=50>"+ ProductForm.getDescription()
+		retString += "<tr><td valign=top>kirjeldus:</td><td><textarea name=description rows=10 cols=50>"+ (ProductForm.getDescription()!=null?ProductForm.getDescription():blankString)
 				+ "</textarea></td></tr>";
 		return retString;
 	}
 
-	public String generateSpecialUpdateForm(List<FormAttribute> formAttributes, int selectedCatalog, String actionType)
+	public String generateSpecialUpdateForm(final List<FormAttribute> formAttributes, final int selectedCatalog, final String actionType)
 	{
 		String retString = "";
 		String baseString = "";
@@ -91,15 +67,21 @@ public class DrawUpdateForm
 
 			newName = value;
 			if (prevName == newName)
+			{
 				value = "";
+			}
 			String valueNumber = String.valueOf((attr.getValueNumber()!=null)?attr.getValueNumber().getValue():"");
 			String baseValue = "";
 			if(virtValue!=null)
+			{
 				baseValue = virtValue;
-			else if (valueText == null)
+			} else if (valueText == null)
+			{
 				baseValue = valueNumber;
-			else
+			} else
+			{
 				baseValue = valueText;
+			}
 			retString += "<tr><td>";
 			retString += value;
 			retString += (isRequired == 1) ? " * " : "";
@@ -121,7 +103,9 @@ public class DrawUpdateForm
 		retString+="<input type=hidden name='action' value='"+actionType+"'>";
 
 		if (cnt > 0)
+		{
 			return baseString + retString;
+		}
 		return baseString;
 	}
 
@@ -130,6 +114,31 @@ public class DrawUpdateForm
 		String retString = "";
 		retString += "<tr><td colspan=2><input type=submit value=Salvesta></td></tr></table>";
 		retString += "</form></div>";
+		return retString;
+	}
+
+	public String generateUpdateForm(final ProductForm ProductForm, final int selectedCatalog, final String action)
+	{
+		String retString = "";
+		retString += "<div class=\"formd\"><form action=c?user_action="+action+" method=post><table>";
+		retString += "<tr><td colspan=2>id:" + ProductForm.getItem()
+				+ ".<input type=hidden name=catalog value=" + selectedCatalog
+				+ "><input type=hidden name=product_id value='" + ProductForm.getItem()
+				+ "'></td><td></td></tr>";
+		retString += "<tr><td>tootja kood:</td><td><input type=text name=product_code value='"
+				+ ProductForm.getProducerCode() + "'></td></tr>";
+		retString += "<tr><td>nimetus:</td><td><input type=text name=name value='"
+				+ ProductForm.getName() + "' size=50></td><td>"
+				+ ProductForm.getErrorByField("name") + "</td></tr>";
+		retString += "<tr><td>ladumise hind:</td><td><input type=text name=store_price value='"
+				+ ProductForm.getStorePrice() + "' size=50></td><td>"
+				+ ProductForm.getErrorByField("store_price") + "</td></tr>";
+		retString += "<tr><td>muugi hind:</td><td><input type=text name=sale_price value='"
+				+ ProductForm.getSalePrice()
+				+ "' size=50></td><td>"
+				+ ProductForm.getErrorByField("sale_price") + "</td></tr>";
+		retString += "<tr><td valign=top>kirjeldus:</td><td><textarea name=description rows=10 cols=50>"
+				+ ProductForm.getDescription() + "</textarea></td></tr>";
 		return retString;
 	}
 

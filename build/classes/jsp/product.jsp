@@ -282,11 +282,11 @@
 						Product Product = null;
 						List<Product> products = null;
 						String product_URL = "c?";
-						String product_URL_parameters = "&";
+						String product_URL_parameters = "&catalog=";
 
-						if (!(selected_catalog_id_s.equals(""))) {
+						/*if (!(selected_catalog_id_s.equals(""))) {
 							product_URL_parameters = product_URL_parameters + "catalog=" + selected_catalog_id_s;
-						}
+						}*/
 
 						//		product_URL = product_URL + product_URL_parameters;
 
@@ -294,7 +294,7 @@
 						out.println("<p><div class=\"product_list\">Kaubad:<table class=\"product_list\">");
 						for (Product product : products) {
 							out.println("<tr><td class=\"product_list\"><a href=" + product_URL + "product_id="
-									+ product.getProduct() + product_URL_parameters + ">" + product.getName()
+									+ product.getProduct() + product_URL_parameters + product.getProduct_catalog()  + ">" + product.getName()
 									+ "</a></td><td>" + Float.toString(product.getStore_price()) + "</td></tr>");
 						}
 						out.println("</table></div></p>");

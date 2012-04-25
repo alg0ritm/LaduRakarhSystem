@@ -24,19 +24,143 @@ import ttu.rakarh1.log.MyLogger;
 public class ProductDAOImpl implements ProductDAO
 {
 
-	String sql;
 	Connection db;
-	PreparedStatement ps;
-	Statement st;
-	ResultSet ProductRset;
 	ttu.rakarh1.backend.dao.dbconnection dbconnection;
+	ResultSet ProductRset;
+	PreparedStatement ps;
+	String sql;
+	Statement st;
 
-	public void setDbConnection(dbconnection dbconnection)
+	private String getAdditionalSqlAttr(final List<FormAttribute> formAttributes)
 	{
-		this.dbconnection = dbconnection;
+		String sql = "";
+		String typeName = "";
+		String typeValue = "";
+		String dataType = "";
+		int typeColType = 0;
+		FormAttrField name = null;
+		String sqlBasic = "Select q1.item_fk from "
+				+ "(Select it.item_type, iat.type_name, ta.required, iat.data_type as data_type, ia.value_text, ia.item_fk from item_type it "
+				+ "inner join type_attribute ta on ta.item_type_fk = it.item_type "
+				+ "inner join item_attribute_type iat on iat.item_attribute_type = ta.item_attribute_type_fk "
+				+ "inner join item_attribute ia on ia.item_attribute_type_fk = iat.item_attribute_type "
+				+ ") as q1 " + "inner join item_attribute ia2 on q1.item_fk = ia2.item_fk";
+		String sqlGroup = " group by q1.item_fk";
+		String sqlJoin = "";
+		String sqlHaving = " having count(q1.item_fk)=";
+		int cnt = 0;
+		for (FormAttribute attr : formAttributes)
+		{
+			name = attr.getName();
+			if (name.getVirtValue() != null)
+			{
+				cnt++;
+				typeName = name.getValue();
+				typeValue = name.getVirtValue();
+				typeColType = name.getColumnType();
+				dataType = attr.getDataType().getValue();
+
+				MyLogger.LogMessage("typeName=" + typeName + " typeValue=" + typeValue
+						+ " typeColType=" + typeColType);
+				String addition = (Integer.parseInt(dataType) == 1) ? "ia2.value_text = '"
+						+ typeValue + "')" : "ia2.value_number= " + typeValue + ")";
+				if (cnt == 1)
+				{
+					sqlJoin = " where ((q1.type_name='" + typeName + "' and " + addition;
+				} else
+				{
+					sqlJoin += " or ( " + "q1.type_name='" + typeName + "' and " + addition;
+				}
+			}
+		}
+		if (cnt == 0)
+		{
+			return sql;
+		} else
+		{
+			sqlJoin += ")";
+			sqlHaving += cnt;
+			sql = sqlBasic + sqlJoin + sqlGroup + sqlHaving;
+			MyLogger.LogMessage("getAdditionalSqlAttr " + sql);
+			return sql;
+		}
 	}
 
-	public Product getProductById(int product_id)
+	@Override
+	public ProductCatalog getCatalogById(final int catalogedToBeremovedFrom)
+	{
+		ProductCatalog catalog = new ProductCatalog();
+		try
+		{
+			db = dbconnection.getConnection();
+			String sql = "Select item_type, type_name, level, super_type_fk from item_type where item_type=?";
+
+			ps = this.db.prepareStatement(sql);
+			ps.setInt(1, catalogedToBeremovedFrom);
+			ProductRset = ps.executeQuery();
+
+			while (ProductRset.next())
+			{
+				catalog.setProduct_catalog(ProductRset.getInt("item_type"));
+				catalog.setLevel(ProductRset.getInt("level"));
+				catalog.setName(ProductRset.getString("type_name"));
+				catalog.setUpper_catalog(ProductRset.getInt("super_type_fk"));
+			}
+
+		} catch (Exception ex)
+		{
+			MyLogger.Log("ProductDAOImpl.getProductId():", ex.getMessage());
+		}
+
+		return catalog;
+	}
+
+	private String getGeneralSqlAttr(final ProductSearchCriteria ProductSearchCriteria)
+	{
+		ArrayList<String> genAttrList = ProductSearchCriteria.getGenAttrList();
+		Iterator i = genAttrList.iterator();
+		int cnt = 0;
+		String genSql = "";
+		while (i.hasNext())
+		{
+			cnt++;
+			int valueInt = 0;
+			String curr = ((String) i.next()).trim();
+			String and = (cnt == 1) ? "" : " and ";
+			try
+			{
+				valueInt = Integer.parseInt(curr);
+			} catch (NumberFormatException e)
+			{
+				MyLogger.Log("ProductSearchCriteria.getGenAttrList()", e.getMessage());
+				valueInt = -1;
+			}
+			String valuNum = (valueInt == -1) ? "" : " or ia.value_number=" + curr;
+			genSql += and + "(ia.value_text ='" + curr + "'" + valuNum + ") and ia.item_fk=i.item";
+		}
+		return genSql;
+	}
+
+	public List<Product> getItems_fromDB()
+	{
+		MyLogger logger = new MyLogger();
+		List<Product> itemList = null;
+		Session session = null;
+		try
+		{
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			itemList = session.createQuery("from Item as a").list();
+
+		} catch (Exception e)
+		{
+			MyLogger.LogMessage("Error in creating/executing HQL query" + e.getMessage());
+		}
+		return itemList;
+	}
+
+	@Override
+	public Product getProductById(final int product_id)
 	{
 		Product Product = null;
 		try
@@ -71,8 +195,257 @@ public class ProductDAOImpl implements ProductDAO
 		return Product;
 	}
 
+	// use this query for super categories
+	/*
+	 * Select i.item, i.unit_type_fk, i.supplier_enterprise_fk,
+	 * i.item_type_fk,name, i.store_price, i.sale_price, i.producer,
+	 * i.description, i.producer_code, i.created FROM item i inner join
+	 * item_type it2 on it2.item_type = i.item_type_fk and it2.item_type in
+	 * (Select item_type from item_type it3 where it3.super_type_fk = (Select
+	 * it1.super_type_fk from item_type it1 where it1.item_type = 9 ))
+	 */
+
+	// otherwise qry
+	/*
+	 * Select i.item, i.unit_type_fk, i.supplier_enterprise_fk,
+	 * i.item_type_fk,name, i.store_price, i.sale_price, i.producer,
+	 * i.description, i.producer_code, i.created FROM item i inner join
+	 * item_type it2 on it2.item_type = i.item_type_fk and it2.item_type in
+	 * (Select item_type from item_type it where it.super_type_fk = 4)
+	 */
+
+	@Override
+	public int getProductId(final String producerCode)
+	{
+		int item = 0;
+		try
+		{
+			db = dbconnection.getConnection();
+			String sql = "select i.item from item i where producer_code = '" + producerCode + "'";
+			ps = this.db.prepareStatement(sql);
+			ProductRset = ps.executeQuery();
+			MyLogger.LogMessage("ProductDAOImpl.getProductId(): Returning item"
+					+ "select i.item from item where producer_code = '" + producerCode
+					+ "' returning item");
+			while (ProductRset.next())
+			{
+				item = ProductRset.getInt("item");
+			}
+
+		} catch (Exception ex)
+		{
+			MyLogger.Log("ProductDAOImpl.getProductId():", ex.getMessage());
+		}
+
+		return item;
+
+	}
+
+	@Override
+	public List<ttu.rakarh1.backend.model.data.Product> getProductsByCatalog(final int catalog_id)
+	{
+		List<ttu.rakarh1.backend.model.data.Product> ProductList = null;
+		Product Product = null;
+		try
+		{
+			db = dbconnection.getConnection();
+			sql = "SELECT item, unit_type_fk,supplier_enterprise_fk,item_type_fk,name, store_price, sale_price, producer,"
+					+ "description,producer_code, created FROM item WHERE item_type_fk=?";
+			ps = this.db.prepareStatement(sql);
+			ps.setInt(1, catalog_id);
+			ProductRset = ps.executeQuery();
+			ProductList = new ArrayList<ttu.rakarh1.backend.model.data.Product>();
+			while (ProductRset.next())
+			{
+				Product = new Product();
+				Product.setProduct(ProductRset.getInt("item"));
+				Product.setName(ProductRset.getString("name"));
+				Product.setDescription(ProductRset.getString("description"));
+				Product.setProduct_code(ProductRset.getString("producer_code"));
+				Product.setStore_price(ProductRset.getFloat("store_price"));
+				Product.setSale_price(ProductRset.getInt("sale_price"));
+				Product.setProduct_catalog(ProductRset.getInt("item_type_fk"));
+				ProductList.add(Product);
+			}
+		} catch (Exception ex)
+		{
+			MyLogger.Log("ProductDAOImpl.getProductsByCatalog():", ex.getMessage());
+		}
+
+		return ProductList;
+	}
+
+	@Override
+	public ArrayList<Product> getProductsByCatalogForRemoval(final int catalogedToBeremovedFrom)
+	{
+		ArrayList<Product> ProductList = null;
+		Product Product = null;
+		try
+		{
+			db = dbconnection.getConnection();
+			sql = "SELECT item, unit_type_fk,supplier_enterprise_fk,item_type_fk,name, store_price, sale_price, producer," +
+					" description,producer_code, created, a.item_count FROM item " +
+					" left join (Select sum(item_count) as item_count, item_fk from item_store its group by item_fk) a on a.item_fk = item.item " +
+					" WHERE item_type_fk=? and (a.item_count = 0 or item.item not in (select item_fk from item_store))";
+			ps = this.db.prepareStatement(sql);
+			ps.setInt(1, catalogedToBeremovedFrom);
+			ProductRset = ps.executeQuery();
+			ProductList = new ArrayList<ttu.rakarh1.backend.model.data.Product>();
+			while (ProductRset.next())
+			{
+				Product = new Product();
+				Product.setProduct(ProductRset.getInt("item"));
+				Product.setName(ProductRset.getString("name"));
+				Product.setDescription(ProductRset.getString("description"));
+				Product.setProduct_code(ProductRset.getString("producer_code"));
+				Product.setStore_price(ProductRset.getFloat("store_price"));
+				Product.setSale_price(ProductRset.getInt("sale_price"));
+				Product.setProduct_catalog(ProductRset.getInt("item_type_fk"));
+				ProductList.add(Product);
+			}
+		} catch (Exception ex)
+		{
+			MyLogger.Log("ProductDAOImpl.getProductsByCatalog():", ex.getMessage());
+		}
+
+		return ProductList;
+	}
+
+	@Override
+	public int insertProduct(final Product newProduct)
+	{
+		int inserted_product_id = 0;
+
+		try
+		{
+
+			db = dbconnection.getConnection();
+			MyLogger.LogMessage("insertProduct() after getting connection");
+			sql = "INSERT INTO item (producer_code,name,description, store_price, sale_price, item_type_fk) VALUES (?,?,?,?,?,?) RETURNING item";
+			MyLogger.LogMessage("INSERT INTO item (producer_code,name,description, store_price, sale_price, item_type_fk) VALUES ("
+					+ newProduct.getProduct_code()
+					+ ", "
+					+ newProduct.getName()
+					+ ", "
+					+ newProduct.getDescription()
+					+ ", "
+					+ Float.parseFloat(newProduct.getStore_price() + "")
+					+ ", "
+					+ Float.parseFloat(newProduct.getSale_price() + "")
+					+ ", "
+					+ newProduct.getProduct_catalog() + ")");
+
+			ps = db.prepareStatement(sql);
+			ps.setString(1, newProduct.getProduct_code());
+			ps.setString(2, newProduct.getName());
+			ps.setString(3, newProduct.getDescription());
+			ps.setFloat(4, Float.parseFloat(newProduct.getStore_price() + ""));
+			ps.setFloat(5, Float.parseFloat(newProduct.getSale_price() + ""));
+			ps.setInt(6, newProduct.getProduct_catalog());
+			ProductRset = ps.executeQuery();
+			MyLogger.LogMessage("ProductDaoImpl.insertProduct() after insert");
+
+			while (ProductRset.next())
+			{
+				inserted_product_id = ProductRset.getInt("item");
+			}
+
+			// db.close();
+		} catch (Exception ex)
+		{
+			MyLogger.Log("insertProduct():", ex.getMessage());
+
+		}
+		return inserted_product_id;
+
+	}
+
+	@Override
+	public int removeProducts(final ArrayList<Product> removableItems)
+	{
+
+		int result = 0;
+		int rowsDeleted = 0;
+		try
+		{
+			db = dbconnection.getConnection();
+			db.setAutoCommit(false);
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try
+		{
+			Iterator it = removableItems.iterator();
+			while(it.hasNext()) {
+				Product next = (Product) it.next();
+
+
+			/*Delete from item where item=40
+			delete from item_store where item_fk=40
+			delete from item_action where item_fk=40
+			delete from item_attribute where item_fk=40*/
+
+			sql = "Delete from item where item=?";
+			db = dbconnection.getConnection();
+
+			// getting all stores where this poduct is registred
+			try
+			{
+				ps = db.prepareStatement(sql);
+				ps.setInt(1, next.getProduct());
+				rowsDeleted = ps.executeUpdate();
+
+				sql = "delete from item_store where item_fk=?";
+				ps = db.prepareStatement(sql);
+				ps.setInt(1, next.getProduct());
+				rowsDeleted = ps.executeUpdate();
+
+				sql = "delete from item_action where item_fk=?";
+				ps = db.prepareStatement(sql);
+				ps.setInt(1, next.getProduct());
+				rowsDeleted = ps.executeUpdate();
+
+				sql = "delete from item_attribute where item_fk=?";
+				ps = db.prepareStatement(sql);
+				ps.setInt(1, next.getProduct());
+				rowsDeleted = ps.executeUpdate();
+				db.commit();
+
+				result = 1;
+
+
+			} catch (Exception E)
+			{
+
+
+				MyLogger.LogMessage("removeProducts() Wrong Store parameters // sql Error");
+				return result;
+			}
+
+
+
+
+
+
+			// if no stores are set
+
+
+
+
+			}
+		}catch(Exception exp) {
+			MyLogger.LogMessage("removeProducts() Global error occured while deleting // sql Error");
+			return result;
+		}
+		return result;
+
+	}
+
+	@Override
 	public List<ttu.rakarh1.backend.model.data.Product> searchProducts(
-			ProductSearchCriteria ProductSearchCriteria, HttpServletRequest request)
+			final ProductSearchCriteria ProductSearchCriteria, final HttpServletRequest request)
 	{
 
 		// with recursive sumthis(item_type, super_type_fk) as (
@@ -240,7 +613,7 @@ public class ProductDAOImpl implements ProductDAO
 				Product.setProduct_code(rs.getString("producer_code"));
 				Product.setStore_price(rs.getFloat("store_price"));
 				Product.setSale_price(rs.getInt("sale_price"));
-				Product.setProduct_catalog(rs.getInt("unit_type_fk"));
+				Product.setProduct_catalog(rs.getInt("item_type_fk"));
 				ProductList.add(Product);
 				cnt = cnt + 1;
 			}
@@ -256,26 +629,15 @@ public class ProductDAOImpl implements ProductDAO
 		return ProductList;
 	}
 
-	public List<Product> getItems_fromDB()
+	@Override
+	public void setDbConnection(final dbconnection dbconnection)
 	{
-		MyLogger logger = new MyLogger();
-		List<Product> itemList = null;
-		Session session = null;
-		try
-		{
-			session = HibernateUtil.getSessionFactory().getCurrentSession();
-			session.beginTransaction();
-			itemList = session.createQuery("from Item as a").list();
-
-		} catch (Exception e)
-		{
-			MyLogger.LogMessage("Error in creating/executing HQL query" + e.getMessage());
-		}
-		return itemList;
+		this.dbconnection = dbconnection;
 	}
 
 	// show lisa product only for 2+ levels
-	public boolean showAddProduct(int catalog)
+	@Override
+	public boolean showAddProduct(final int catalog)
 	{
 		int count = 0;
 		String sql = "Select it.item_type, it.level from item_type it inner join (select q1.level, q1.item_type from (with recursive sumthis(item_type, super_type_fk, level) as ("
@@ -308,159 +670,14 @@ public class ProductDAOImpl implements ProductDAO
 			e.printStackTrace();
 		}
 		if (count > 0)
+		{
 			return true;
+		}
 		return false;
 	}
 
-	// use this query for super categories
-	/*
-	 * Select i.item, i.unit_type_fk, i.supplier_enterprise_fk,
-	 * i.item_type_fk,name, i.store_price, i.sale_price, i.producer,
-	 * i.description, i.producer_code, i.created FROM item i inner join
-	 * item_type it2 on it2.item_type = i.item_type_fk and it2.item_type in
-	 * (Select item_type from item_type it3 where it3.super_type_fk = (Select
-	 * it1.super_type_fk from item_type it1 where it1.item_type = 9 ))
-	 */
-
-	// otherwise qry
-	/*
-	 * Select i.item, i.unit_type_fk, i.supplier_enterprise_fk,
-	 * i.item_type_fk,name, i.store_price, i.sale_price, i.producer,
-	 * i.description, i.producer_code, i.created FROM item i inner join
-	 * item_type it2 on it2.item_type = i.item_type_fk and it2.item_type in
-	 * (Select item_type from item_type it where it.super_type_fk = 4)
-	 */
-
-	private String getGeneralSqlAttr(ProductSearchCriteria ProductSearchCriteria)
-	{
-		ArrayList<String> genAttrList = ProductSearchCriteria.getGenAttrList();
-		Iterator i = genAttrList.iterator();
-		int cnt = 0;
-		String genSql = "";
-		while (i.hasNext())
-		{
-			cnt++;
-			int valueInt = 0;
-			String curr = ((String) i.next()).trim();
-			String and = (cnt == 1) ? "" : " and ";
-			try
-			{
-				valueInt = Integer.parseInt(curr);
-			} catch (NumberFormatException e)
-			{
-				MyLogger.Log("ProductSearchCriteria.getGenAttrList()", e.getMessage());
-				valueInt = -1;
-			}
-			String valuNum = (valueInt == -1) ? "" : " or ia.value_number=" + curr;
-			genSql += and + "(ia.value_text ='" + curr + "'" + valuNum + ")";
-		}
-		return genSql;
-	}
-
-	private String getAdditionalSqlAttr(List<FormAttribute> formAttributes)
-	{
-		String sql = "";
-		String typeName = "";
-		String typeValue = "";
-		String dataType = "";
-		int typeColType = 0;
-		FormAttrField name = null;
-		String sqlBasic = "Select q1.item_fk from "
-				+ "(Select it.item_type, iat.type_name, ta.required, iat.data_type as data_type, ia.value_text, ia.item_fk from item_type it "
-				+ "inner join type_attribute ta on ta.item_type_fk = it.item_type "
-				+ "inner join item_attribute_type iat on iat.item_attribute_type = ta.item_attribute_type_fk "
-				+ "inner join item_attribute ia on ia.item_attribute_type_fk = iat.item_attribute_type "
-				+ ") as q1 " + "inner join item_attribute ia2 on q1.item_fk = ia2.item_fk";
-		String sqlGroup = " group by q1.item_fk";
-		String sqlJoin = "";
-		String sqlHaving = " having count(q1.item_fk)=";
-		int cnt = 0;
-		for (FormAttribute attr : formAttributes)
-		{
-			name = attr.getName();
-			if (name.getVirtValue() != null)
-			{
-				cnt++;
-				typeName = name.getValue();
-				typeValue = name.getVirtValue();
-				typeColType = name.getColumnType();
-				dataType = attr.getDataType().getValue();
-
-				MyLogger.LogMessage("typeName=" + typeName + " typeValue=" + typeValue
-						+ " typeColType=" + typeColType);
-				String addition = (Integer.parseInt(dataType) == 1) ? "ia2.value_text = '"
-						+ typeValue + "')" : "ia2.value_number= " + typeValue + ")";
-				if (cnt == 1)
-				{
-					sqlJoin = " where ((q1.type_name='" + typeName + "' and " + addition;
-				} else
-				{
-					sqlJoin += " or ( " + "q1.type_name='" + typeName + "' and " + addition;
-				}
-			}
-		}
-		if (cnt == 0)
-		{
-			return sql;
-		} else
-		{
-			sqlJoin += ")";
-			sqlHaving += cnt;
-			sql = sqlBasic + sqlJoin + sqlGroup + sqlHaving;
-			MyLogger.LogMessage("getAdditionalSqlAttr " + sql);
-			return sql;
-		}
-	}
-
-	public int insertProduct(Product newProduct)
-	{
-		int inserted_product_id = 0;
-
-		try
-		{
-
-			db = dbconnection.getConnection();
-			MyLogger.LogMessage("insertProduct() after getting connection");
-			sql = "INSERT INTO item (producer_code,name,description, store_price, sale_price, item_type_fk) VALUES (?,?,?,?,?,?) RETURNING item";
-			MyLogger.LogMessage("INSERT INTO item (producer_code,name,description, store_price, sale_price, item_type_fk) VALUES ("
-					+ newProduct.getProduct_code()
-					+ ", "
-					+ newProduct.getName()
-					+ ", "
-					+ newProduct.getDescription()
-					+ ", "
-					+ Float.parseFloat(newProduct.getStore_price() + "")
-					+ ", "
-					+ Float.parseFloat(newProduct.getSale_price() + "")
-					+ ", "
-					+ newProduct.getProduct_catalog() + ")");
-
-			ps = db.prepareStatement(sql);
-			ps.setString(1, newProduct.getProduct_code());
-			ps.setString(2, newProduct.getName());
-			ps.setString(3, newProduct.getDescription());
-			ps.setFloat(4, Float.parseFloat(newProduct.getStore_price() + ""));
-			ps.setFloat(5, Float.parseFloat(newProduct.getSale_price() + ""));
-			ps.setInt(6, newProduct.getProduct_catalog());
-			ProductRset = ps.executeQuery();
-			MyLogger.LogMessage("ProductDaoImpl.insertProduct() after insert");
-
-			while (ProductRset.next())
-			{
-				inserted_product_id = ProductRset.getInt("item");
-			}
-
-			// db.close();
-		} catch (Exception ex)
-		{
-			MyLogger.Log("insertProduct():", ex.getMessage());
-
-		}
-		return inserted_product_id;
-
-	}
-
-	public int updateProduct(Product updatedProduct)
+	@Override
+	public int updateProduct(final Product updatedProduct)
 	{
 		int update_ok = 1;
 
@@ -488,214 +705,6 @@ public class ProductDAOImpl implements ProductDAO
 		}
 
 		return update_ok;
-	}
-
-	public List<ttu.rakarh1.backend.model.data.Product> getProductsByCatalog(int catalog_id)
-	{
-		List<ttu.rakarh1.backend.model.data.Product> ProductList = null;
-		Product Product = null;
-		try
-		{
-			db = dbconnection.getConnection();
-			sql = "SELECT item, unit_type_fk,supplier_enterprise_fk,item_type_fk,name, store_price, sale_price, producer,"
-					+ "description,producer_code, created FROM item WHERE item_type_fk=?";
-			ps = this.db.prepareStatement(sql);
-			ps.setInt(1, catalog_id);
-			ProductRset = ps.executeQuery();
-			ProductList = new ArrayList<ttu.rakarh1.backend.model.data.Product>();
-			while (ProductRset.next())
-			{
-				Product = new Product();
-				Product.setProduct(ProductRset.getInt("item"));
-				Product.setName(ProductRset.getString("name"));
-				Product.setDescription(ProductRset.getString("description"));
-				Product.setProduct_code(ProductRset.getString("producer_code"));
-				Product.setStore_price(ProductRset.getFloat("store_price"));
-				Product.setSale_price(ProductRset.getInt("sale_price"));
-				Product.setProduct_catalog(ProductRset.getInt("item_type_fk"));
-				ProductList.add(Product);
-			}
-		} catch (Exception ex)
-		{
-			MyLogger.Log("ProductDAOImpl.getProductsByCatalog():", ex.getMessage());
-		}
-
-		return ProductList;
-	}
-
-	@Override
-	public int getProductId(String producerCode)
-	{
-		int item = 0;
-		try
-		{
-			db = dbconnection.getConnection();
-			String sql = "select i.item from item i where producer_code = '" + producerCode + "'";
-			ps = this.db.prepareStatement(sql);
-			ProductRset = ps.executeQuery();
-			MyLogger.LogMessage("ProductDAOImpl.getProductId(): Returning item"
-					+ "select i.item from item where producer_code = '" + producerCode
-					+ "' returning item");
-			while (ProductRset.next())
-			{
-				item = ProductRset.getInt("item");
-			}
-
-		} catch (Exception ex)
-		{
-			MyLogger.Log("ProductDAOImpl.getProductId():", ex.getMessage());
-		}
-
-		return item;
-
-	}
-
-	@Override
-	public ArrayList<Product> getProductsByCatalogForRemoval(int catalogedToBeremovedFrom)
-	{
-		ArrayList<Product> ProductList = null;
-		Product Product = null;
-		try
-		{
-			db = dbconnection.getConnection();
-			sql = "SELECT item, unit_type_fk,supplier_enterprise_fk,item_type_fk,name, store_price, sale_price, producer," +
-					" description,producer_code, created, a.item_count FROM item " +
-					" left join (Select sum(item_count) as item_count, item_fk from item_store its group by item_fk) a on a.item_fk = item.item " +
-					" WHERE item_type_fk=? and (a.item_count = 0 or item.item not in (select item_fk from item_store))";
-			ps = this.db.prepareStatement(sql);
-			ps.setInt(1, catalogedToBeremovedFrom);
-			ProductRset = ps.executeQuery();
-			ProductList = new ArrayList<ttu.rakarh1.backend.model.data.Product>();
-			while (ProductRset.next())
-			{
-				Product = new Product();
-				Product.setProduct(ProductRset.getInt("item"));
-				Product.setName(ProductRset.getString("name"));
-				Product.setDescription(ProductRset.getString("description"));
-				Product.setProduct_code(ProductRset.getString("producer_code"));
-				Product.setStore_price(ProductRset.getFloat("store_price"));
-				Product.setSale_price(ProductRset.getInt("sale_price"));
-				Product.setProduct_catalog(ProductRset.getInt("item_type_fk"));
-				ProductList.add(Product);
-			}
-		} catch (Exception ex)
-		{
-			MyLogger.Log("ProductDAOImpl.getProductsByCatalog():", ex.getMessage());
-		}
-
-		return ProductList;
-	}
-
-	@Override
-	public ProductCatalog getCatalogById(int catalogedToBeremovedFrom)
-	{
-		ProductCatalog catalog = new ProductCatalog();
-		try
-		{
-			db = dbconnection.getConnection();
-			String sql = "Select item_type, type_name, level, super_type_fk from item_type where item_type=?";
-
-			ps = this.db.prepareStatement(sql);
-			ps.setInt(1, catalogedToBeremovedFrom);
-			ProductRset = ps.executeQuery();
-
-			while (ProductRset.next())
-			{
-				catalog.setProduct_catalog(ProductRset.getInt("item_type"));
-				catalog.setLevel(ProductRset.getInt("level"));
-				catalog.setName(ProductRset.getString("type_name"));
-				catalog.setUpper_catalog(ProductRset.getInt("super_type_fk"));
-			}
-
-		} catch (Exception ex)
-		{
-			MyLogger.Log("ProductDAOImpl.getProductId():", ex.getMessage());
-		}
-
-		return catalog;
-	}
-
-	@Override
-	public int removeProducts(ArrayList<Product> removableItems)
-	{
-
-		int result = 0;
-		int rowsDeleted = 0;
-		try
-		{
-			db = dbconnection.getConnection();
-			db.setAutoCommit(false);
-		} catch (SQLException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try
-		{
-			Iterator it = removableItems.iterator();
-			while(it.hasNext()) {
-				Product next = (Product) it.next();
-
-
-			/*Delete from item where item=40
-			delete from item_store where item_fk=40
-			delete from item_action where item_fk=40
-			delete from item_attribute where item_fk=40*/
-
-			sql = "Delete from item where item=?";
-			db = dbconnection.getConnection();
-
-			// getting all stores where this poduct is registred
-			try
-			{
-				ps = db.prepareStatement(sql);
-				ps.setInt(1, next.getProduct());
-				rowsDeleted = ps.executeUpdate();
-
-				sql = "delete from item_store where item_fk=?";
-				ps = db.prepareStatement(sql);
-				ps.setInt(1, next.getProduct());
-				rowsDeleted = ps.executeUpdate();
-
-				sql = "delete from item_action where item_fk=?";
-				ps = db.prepareStatement(sql);
-				ps.setInt(1, next.getProduct());
-				rowsDeleted = ps.executeUpdate();
-
-				sql = "delete from item_attribute where item_fk=?";
-				ps = db.prepareStatement(sql);
-				ps.setInt(1, next.getProduct());
-				rowsDeleted = ps.executeUpdate();
-				db.commit();
-
-				result = 1;
-
-
-			} catch (Exception E)
-			{
-
-
-				MyLogger.LogMessage("removeProducts() Wrong Store parameters // sql Error");
-				return result;
-			}
-
-
-
-
-
-
-			// if no stores are set
-
-
-
-
-			}
-		}catch(Exception exp) {
-			MyLogger.LogMessage("removeProducts() Global error occured while deleting // sql Error");
-			return result;
-		}
-		return result;
-
 	}
 
 

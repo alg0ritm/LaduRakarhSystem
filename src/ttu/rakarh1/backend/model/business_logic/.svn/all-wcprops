@@ -1,11 +1,11 @@
 K 25
 svn:wc:ra_dav:version-url
 V 93
-/personal/!svn/ver/4211/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/business_logic
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/business_logic
 END
 ProductValidator.java
 K 25
 svn:wc:ra_dav:version-url
 V 115
-/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/business_logic/ProductValidator.java
+/personal/!svn/ver/4235/trunk/anton/Steps_test_1/src/ttu/rakarh1/backend/model/business_logic/ProductValidator.java
 END

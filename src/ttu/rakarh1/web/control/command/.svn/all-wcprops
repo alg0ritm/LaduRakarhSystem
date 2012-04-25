@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 84
-/personal/!svn/ver/4216/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command
+/personal/!svn/ver/4224/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command
 END
 insertProductCommand.java
 K 25
@@ -13,7 +13,7 @@ searchProductCommand.java
 K 25
 svn:wc:ra_dav:version-url
 V 110
-/personal/!svn/ver/4223/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/searchProductCommand.java
+/personal/!svn/ver/4235/trunk/anton/Steps_test_1/src/ttu/rakarh1/web/control/command/searchProductCommand.java
 END
 getMoveProductCommand.java
 K 25

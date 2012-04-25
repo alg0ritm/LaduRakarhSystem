@@ -11,36 +11,32 @@ public class HorisontalMenu
 	 */
 
 	private boolean isAdd;
-	private boolean isMove;
-	private boolean isSearch;
+	private boolean isBasicSearch;
 	private boolean isLogOut;
-	private boolean isTakeOnTheAccount;
-	private boolean isRemoveItems;
-	public boolean isRemoveItems()
-	{
-		return isRemoveItems;
-	}
+	private boolean isMove;
 
 	private boolean isRemoveFromTheAccount;
-	private Product selectedProduct;
-	private ProductCatalog selectedCatalog;
+
+	private boolean isRemoveItems;
+	private boolean isSearch;
+	private boolean isTakeOnTheAccount;
+	HashMap<String, String> map = new HashMap<String, String>();
 	private String menuResult;
 
+	private ProductCatalog selectedCatalog;
+	private Product selectedProduct;
+	public HashMap<String, String> getMap()
+	{
+		return map;
+	}
 	public String getMenuResult()
 	{
 		return menuResult;
 	}
 
-	HashMap<String, String> map = new HashMap<String, String>();
-
-	public boolean isAdd()
+	public ProductCatalog getSelectedCatalog()
 	{
-		return isAdd;
-	}
-
-	public void setAdd(boolean isAdd)
-	{
-		this.isAdd = isAdd;
+		return selectedCatalog;
 	}
 
 	public Product getSelectedProduct()
@@ -48,29 +44,14 @@ public class HorisontalMenu
 		return selectedProduct;
 	}
 
-	public void setSelectedProduct(Product selectedProduct)
+	public boolean isAdd()
 	{
-		this.selectedProduct = selectedProduct;
+		return isAdd;
 	}
 
-	public boolean isMove()
+	public boolean isBasicSearch()
 	{
-		return isMove;
-	}
-
-	public void setMove(boolean isMove)
-	{
-		this.isMove = isMove;
-	}
-
-	public boolean isSearch()
-	{
-		return isSearch;
-	}
-
-	public void setSearch(boolean isSearch)
-	{
-		this.isSearch = isSearch;
+		return isBasicSearch;
 	}
 
 	public boolean isLogOut()
@@ -78,19 +59,9 @@ public class HorisontalMenu
 		return isLogOut;
 	}
 
-	public void setLogOut(boolean isLogOut)
+	public boolean isMove()
 	{
-		this.isLogOut = isLogOut;
-	}
-
-	public boolean isTakeOnTheAccount()
-	{
-		return isTakeOnTheAccount;
-	}
-
-	public void setTakeOnTheAccount(boolean isTakeOnTheAccount)
-	{
-		this.isTakeOnTheAccount = isTakeOnTheAccount;
+		return isMove;
 	}
 
 	public boolean isRemoveFromTheAccount()
@@ -98,25 +69,40 @@ public class HorisontalMenu
 		return isRemoveFromTheAccount;
 	}
 
-	public void setRemoveFromTheAccount(boolean isRemoveFromTheAccount)
+	public boolean isRemoveItems()
 	{
-		this.isRemoveFromTheAccount = isRemoveFromTheAccount;
+		return isRemoveItems;
 	}
 
-	public void setMap(HashMap<String, String> map2)
+	public boolean isSearch()
+	{
+		return isSearch;
+	}
+
+	public boolean isTakeOnTheAccount()
+	{
+		return isTakeOnTheAccount;
+	}
+
+	public void setAdd(final boolean isAdd)
+	{
+		this.isAdd = isAdd;
+	}
+
+	public void setBasicSearch(final boolean isBasicSearch)
+	{
+		this.isBasicSearch = isBasicSearch;
+	}
+
+	public void setLogOut(final boolean isLogOut)
+	{
+		this.isLogOut = isLogOut;
+	}
+
+	public void setMap(final HashMap<String, String> map2)
 	{
 		this.map = map2;
 
-	}
-
-	public HashMap<String, String> getMap()
-	{
-		return map;
-	}
-
-	public void setMenuResult(String menuResult)
-	{
-		this.menuResult = menuResult;
 	}
 
 	public void setMenuResult()
@@ -127,13 +113,21 @@ public class HorisontalMenu
 		MyLogger.LogMessage("seleted catalog is null? " + selectedCatalog == null ? "yes" : "no");
 		String userString= " <> Hello Anton Vesselov || " + "<a href=\"javascript:show_confirm()\">Log out</a>";
 
-		if (selectedCatalog != null)
+		if (isBasicSearch)
 		{
+			result += "<a href=?searchform=yes>Otsi</a>";
+		}
+
+
+		if (selectedCatalog != null )
+		{
+
 			if (isSearch)
 			{
 				result += "<a href=?searchform=yes&catalog="
 						+ selectedCatalog.getProduct_catalog() + ">Otsi</a>";
 			}
+
 			if(selectedCatalog.getSubCatalogs().size() == 0)
 			{
 				isAdd = true;
@@ -183,20 +177,45 @@ public class HorisontalMenu
 		this.menuResult = result;
 	}
 
-	public ProductCatalog getSelectedCatalog()
+	public void setMenuResult(final String menuResult)
 	{
-		return selectedCatalog;
+		this.menuResult = menuResult;
 	}
 
-	public void setSelectedCatalog(ProductCatalog selectedCatalog)
+	public void setMove(final boolean isMove)
+	{
+		this.isMove = isMove;
+	}
+
+	public void setRemoveFromTheAccount(final boolean isRemoveFromTheAccount)
+	{
+		this.isRemoveFromTheAccount = isRemoveFromTheAccount;
+	}
+
+	public void setRemoveItems(final boolean b)
+	{
+		this.isRemoveItems = b;
+
+	}
+
+	public void setSearch(final boolean isSearch)
+	{
+		this.isSearch = isSearch;
+	}
+
+	public void setSelectedCatalog(final ProductCatalog selectedCatalog)
 	{
 		this.selectedCatalog = selectedCatalog;
 	}
 
-	public void setRemoveItems(boolean b)
+	public void setSelectedProduct(final Product selectedProduct)
 	{
-		this.isRemoveItems = b;
+		this.selectedProduct = selectedProduct;
+	}
 
+	public void setTakeOnTheAccount(final boolean isTakeOnTheAccount)
+	{
+		this.isTakeOnTheAccount = isTakeOnTheAccount;
 	}
 
 }
